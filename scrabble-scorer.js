@@ -12,7 +12,6 @@ const oldPointStructure = {
   10: ['Q', 'Z']
 };
 
-const vowels = ['A', 'E', 'I', 'O', 'U']
 
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
@@ -35,6 +34,7 @@ function simpleScore(word){
 return word.length
 };
 
+
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
@@ -46,9 +46,20 @@ function initialPrompt() {
 };
 
 
-
-
-let vowelBonusScore;
+function vowelBonusScore(word){
+	word = word.toUpperCase();
+	let letterPoints = 0;
+  let vowels = ['A', 'E', 'I', 'O', 'U']
+ 
+	for (let i = 0; i < word.length; i++) {
+ 
+	  if (vowels.includes(word[i])){
+			letterPoints += 3 
+      } else { 
+        letterPoints++
+      }
+        return letterPoints;
+      }
 
 let scrabbleScore;
 
@@ -65,11 +76,13 @@ function transform(oldPointStructure) {
 
 let newPointStructure;
 
+
 function runProgram() {
    word = initialPrompt();
    scoringAlgorithm = scorerPrompt();
    console.log(oldScrabbleScorer(word));
 }
+
 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
